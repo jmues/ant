@@ -1,23 +1,6 @@
 package ant;
 
 public class ant {
-	static void fill_equal (double p[]) {
-		for( int i=0; i<p.length;i++)
-			p[i]=1.0/p.length;
-	}
-
-	static void fill_1 (double p[]) {
-		p[0]=1.0/(2.0*p.length);
-		double delta= 1.0/(2.0*(p.length-1));
-		for( int i=1; i<p.length;i++)
-			p[i]=p[0]+delta;
-	}
-
-	static void initcount( int c[]){
-		for( int i=0; i<c.length;i++)
-			c[i]=0;
-	}
-
 	
 	public static void main(String[] args) {
 		int cants=10; // Anzahl der Ameisen
