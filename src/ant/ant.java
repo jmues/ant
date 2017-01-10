@@ -36,7 +36,7 @@ public class ant {
 		map.calcAllWays(locs);
 		map.print();
 		
-		// Alle Ameisen nacheinander einen guten Weg finden lassen
+		// Alle Ameisen nacheinander einen (guten) Weg finden lassen
 		for( int i=0;i<ants.length;i++) {
 			// i-te Ameise: Erlaubte Orte übergebens
 			ants[i]= new journey(locs);
