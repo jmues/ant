@@ -17,10 +17,11 @@ public class ant {
 		for( int i=0; i<c.length;i++)
 			c[i]=0;
 	}
+
 	
 	public static void main(String[] args) {
 		int cants=10; // Anzahl der Ameisen
-		journey ants[]= new journey[cants]; // Reiseroute für jede Ameise
+		journey ants[]= new journey[cants]; //Reiseroute für jede Ameise
 		locations locs= new locations(); // Die zu beuchenden Orte
 		net map= new net(); // Die Landkarte
 		
@@ -45,32 +46,5 @@ public class ant {
 			ants[i].print();
 		}
 	}
-/* 	Test rnd
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		double ps[] = new double[10];
-		fill_equal(ps);
-		int count[]= new int[ps.length];
-		initcount( count);
-		rnd p= new rnd( ps);
-		if( p.ok()) {
-			System.out.println("p ist ok");
-			double m=0.0;
-			int n= 10000;
-			int val;
-			for( int i= 1; i<n;i++) {
-				val= p.run();
-				m+= (double)val;
-				System.out.println(val);
-				count[val-1]++;
-			}
-			System.out.println("Mittelwert "+ m/n);
-			for( int i=0;i<count.length;i++)
-				System.out.println("Wert "+(i+1)+" "+count[i]+" mal. p="+(double)count[i]/n);
-		}
-		else
-			System.out.println("p not ok");
 
-	}
-*/
 }
