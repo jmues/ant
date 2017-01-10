@@ -21,8 +21,8 @@ public class ant {
 	
 	public static void main(String[] args) {
 		int cants=10; // Anzahl der Ameisen
-		journey ants[]= new journey[cants]; //Reiseroute für jede Ameise
-		locations locs= new locations(); // Die zu beuchenden Orte
+		journey ants[]= new journey[cants]; // Reiseroute für jede Ameise
+		locations locs= new locations();    // Die zu beuchenden Orte
 		net map= new net(); // Die Landkarte
 		
 		// Alle Orte anlegen
