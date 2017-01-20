@@ -80,6 +80,18 @@ public class net {
 		return this.ways.first();
 	}
 	
+	public double getLength() {
+		return this.length;
+	}
+	
+	public void signShortest( journey j) {
+		for( way w= this.ways.first(); w!= null; w= this.ways.next()) {
+			w.pheromonVerwittert(0.9);
+			if(j.containsWay(w))
+				w.pheromonAdd(1.0/j.getLength());
+		}
+		
+	}
 	public void print() {
 		System.out.println("Net");
 		for( way w= this.ways.first();w!=null;w=this.ways.next()) {
@@ -89,9 +101,22 @@ public class net {
 			s.print();
 			System.out.print("End   - ");
 			e.print();
-			System.out.println("-----------------");
+			System.out.println("Pheromon "+w.pheromon()+"-----------------");
 		}
 		System.out.println("Length:"+this.length);
 		System.out.println("==========================");
+	}
+	
+	public boolean equals( Object n) {
+		boolean ret= false;
+		way w= this.ways.first();
+		way w1= ((net)n).ways.first(); 
+		while( w1!=null&&w!=null&&w.equals(w1)) {
+			w= this.ways.next();
+			w1= ((net)n).ways.next();
+		}
+		if( w1== null&& w==null)
+			ret= true;
+		return ret;
 	}
 }

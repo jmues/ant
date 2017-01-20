@@ -10,7 +10,7 @@ public class way {
 		this.start = start;
 		this.end = end;
 		this.length = this.lengthCalc();
-		this.pheromon = 1.0;
+		this.pheromon = 0.0001;
 	}
 	way(location start, location end, double p) {
 		this.start = start;
@@ -63,7 +63,14 @@ public class way {
 		double n= Math.pow(1.0/length,a)*Math.pow(pheromon,b);
 		return n;
 	}
-
+	
+	public void pheromonVerwittert(double p){
+		this.pheromon*=p;
+	}
+	
+	public void pheromonAdd( double l){
+		this.pheromon+= l;
+	}
 	public void print(){
 		System.out.print("way Start:");
 		this.start.print();
@@ -120,6 +127,14 @@ public class way {
 		if( this.containsLocEnd(start))
 			return this.copyrev();
 		return null;
+	}
+	
+	public boolean equals( Object w) {
+		boolean ret= false;
+			if( this.start.equals(((way)w).start))
+				if( this.end.equals(((way)w).end))
+					ret= true;
+		return ret;
 	}
 	
 }

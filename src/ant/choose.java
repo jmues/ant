@@ -4,8 +4,8 @@ public class choose {
 	private net netz;
 	private location start;
 	private locations allowed;
-	private double alpha= 0.5;
-	private double beta= 0.5;
+	private double alpha= 1.0;
+	private double beta= 2.0;
 	private double nenner= 1.0;
 
 	private void calcN() {
@@ -27,12 +27,12 @@ public class choose {
 	}
 	
 	choose( net n, location s, locations al) {
-		initchoose(n, s, al, 0.5, 0.5);
+		initchoose(n, s, al, 1.0, 2.0);
 	}
 	
 	choose( net n, locations al) {
 		location s= n.getFirstWay().start();
-		initchoose(n,s,al,0.5,0.5);
+		initchoose(n,s,al,1.0,2.0);
 	}
 	public way bestWay() {
 		//way max= null;
