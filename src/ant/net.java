@@ -84,14 +84,21 @@ public class net {
 		return this.length;
 	}
 	
+	public void signVerwittert(journey j) {
+		for( way w= this.ways.first(); w!= null; w= this.ways.next()) {
+			if( j.containsWay(w))
+				w.pheromonVerwittert(0.5);
+		}
+		
+	}
 	public void signShortest( journey j) {
 		for( way w= this.ways.first(); w!= null; w= this.ways.next()) {
-			w.pheromonVerwittert(0.9);
 			if(j.containsWay(w))
 				w.pheromonAdd(1.0/j.getLength());
 		}
 		
 	}
+
 	public void print() {
 		System.out.println("Net");
 		for( way w= this.ways.first();w!=null;w=this.ways.next()) {
@@ -101,7 +108,8 @@ public class net {
 			s.print();
 			System.out.print("End   - ");
 			e.print();
-			System.out.println("Pheromon "+w.pheromon()+"-----------------");
+			System.out.println("Pheromon "+w.pheromon()+"--------------");
+//			System.out.println("pij "+Math.pow(w.pheromon(),1)*Math.pow(1.0/w.length(),5.0)+"-----------------");
 		}
 		System.out.println("Length:"+this.length);
 		System.out.println("==========================");

@@ -4,7 +4,7 @@ public class way {
 	private location start = null;
 	private location end = null;
 	private double length = 0.0;
-	private double pheromon = 0.0;
+	private double pheromon = 0.0001;
 
 	way(location start, location end) {
 		this.start = start;
@@ -47,21 +47,20 @@ public class way {
 	}
 	
 	public double addN(double n, double a, double b) {
-		if(length==0)
-			length= lengthCalc();
-		if(length==0)
+		if(this.length==0)
+			this.length= lengthCalc();
+		if(this.length==0)
 			return n;
-		n+= Math.pow(1.0/length,a)*Math.pow(pheromon,b);
+		n+= Math.pow(1.0/this.length,b)*Math.pow(pheromon,a);
 		return n;
 	}
 
 	public double calcP(double a, double b) {
-		if(length==0)
-			length= lengthCalc();
-		if(length==0)
+		if(this.length==0)
+			this.length= lengthCalc();
+		if(this.length==0)
 			return 0;
-		double n= Math.pow(1.0/length,a)*Math.pow(pheromon,b);
-		return n;
+		return Math.pow(1.0/length,b)*Math.pow(pheromon,a);
 	}
 	
 	public void pheromonVerwittert(double p){

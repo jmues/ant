@@ -7,9 +7,12 @@ public class rnd {
 	private double eps=0.0001;
 	
 	rnd(double p1[]) {
+		double sum=0.0;
 		this.p= new double [p1.length];
-		for (int i=0; i<p.length; i++)
+		for (int i=0; i<p.length; i++) {
 			this.p[i]=p1[i];
+			sum+= p1[i];
+		}
 		if(!check()) {
 			p=null;
 			return ;
@@ -18,7 +21,7 @@ public class rnd {
 		double prev=0.0;
 		for( int i=0;i<p.length;i++){
 			range[i][0]= prev;
-			prev+= p[i];
+			prev+= p[i]/sum;
 			range[i][1]= prev;
 		}
 	}
@@ -32,6 +35,8 @@ public class rnd {
 				else
 					sum+= p[i];
 			if( sum <1.0-eps|| sum>1.0+eps)
+				return false;
+			if( sum <eps)
 				return false;
 		}
 		return true;

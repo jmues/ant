@@ -3,7 +3,7 @@ package ant;
 public class ant {
 	
 	public static void main(String[] args) {
-		int cants=1500; // Anzahl der Ameisen
+		int cants=250; // Anzahl der Ameisen
 		journey ants[]= new journey[cants]; // Reiseroute für jede Ameise
 		locations locs= new locations();    // Die zu besuchenden Orte
 		net map= new net(); // Die Landkarte
@@ -25,6 +25,15 @@ public class ant {
 		locs.add("N",-10.0,30.0);
 		locs.add("O",-20.0,30.0);
 		locs.add("P",-30.0,30.0);
+		locs.add("Q",40.0,40.0);
+		locs.add("R",30.0,40.0);
+		locs.add("S",20.0,40.0);
+		locs.add("T",10.0,40.0);
+		locs.add("U",0.0,40.0);
+		locs.add("V",-10.0,40.0);
+		locs.add("W",-20.0,40.0);
+		locs.add("X",-30.0,40.0);
+		locs.add("Y",-40.0,40.0);
 		// Eine Karte aller Verbindungswege erzeugen
 		map.calcAllWays(locs);
 		map.print();
@@ -57,8 +66,9 @@ public class ant {
 			}
 */
 			for(int i=0; i<ants.length;i++){
+				map.signVerwittert(ants[i]);
 				map.signShortest(ants[i]);
-		}
+			}
 
 			if( ants[shortestIndex].getLength()<globshortest) {
 				globshortest= ants[shortestIndex].getLength();
